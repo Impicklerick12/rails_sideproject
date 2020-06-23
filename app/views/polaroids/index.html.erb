@@ -1,0 +1,18 @@
+<div class="buttons">
+  <button class="button is-primary is-outlined"><%= link_to "Create a new Polaroid", new_path %></button></button>
+</div>
+
+<div class="tile is-ancestor">
+    <% @polaroids.each_with_index do |polaroid, index| %>
+    <div class="tile is-parent">
+        <article class="tile is-child box">
+            <p class="title"><%= polaroid[":title"] %></p>
+            <p class="subtitle"><%= polaroid[":comment"] %></p>
+            <figure class="image is-1by1">
+                <img src="https://bulma.io/images/placeholders/480x480.png">
+            </figure>
+            <p class="subtitle"><%= link_to "Show Polaroid", polaroid_path(index + 1) %></p>
+        </article>
+    </div>
+    <% end %>
+</div>

@@ -1,0 +1,15 @@
+<h1>Add a new Polaroid</h1>
+
+<form action="<%= polaroids_path %>" method= "POST">
+
+    <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token">
+
+    <label>Title</label>   
+    <input type="text" name="polaroid[:title]">
+
+    <label>Comment</label>
+    <input type="text" name="polaroid[:comment]">
+    
+    <input type="submit" value="Create">
+
+</form>
