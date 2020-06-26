@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @test.title %>
+</p>
+
+<div style="width: 300px; height: auto">
+  <%= image_tag(@test.image, style:"width:100%") %>
+</div>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @test.comment %>
+</p>
+
+<%= link_to 'Edit', edit_test_path(@test) %> |
+<%= link_to 'Back', tests_path %>

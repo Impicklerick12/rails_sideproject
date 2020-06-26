@@ -1,2 +1,16 @@
-<h1>Polaroids#edit</h1>
-<p>Find me in app/views/polaroids/edit.html.erb</p>
+<h1>Edit Polaroid</h1>
+
+<form action="<%= polaroid_path(params[:id]) %>" method="POST" >
+
+    <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
+
+    <input type="hidden" value ="PATCH" name="_method" >
+
+    <label>Title</label>
+    <input type="text" name="polaroid[:title]" value="<%= @polaroid[":title"] %>" />
+
+    <label>Comment</label>
+    <input type="text" name="polaroid[:comment]"value="<%= @polaroid[":comment"] %>" />
+
+    <input type="submit" value="Update" />
+</form>
