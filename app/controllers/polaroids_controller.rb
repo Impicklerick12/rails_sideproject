@@ -1,7 +1,11 @@
 class PolaroidsController < ApplicationController
 
   def index
-    @polaroids = session[:polaroids]
+    if @polaroids == nil
+      render "no_polaroids"
+    else
+      @polaroids = session[:polaroids]
+    end
   end
 
   def new
