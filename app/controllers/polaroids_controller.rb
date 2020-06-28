@@ -1,5 +1,7 @@
 class PolaroidsController < ApplicationController
 
+  before_action :authenticate_user!
+  
   def index
     @polaroids = session[:polaroids]
   end

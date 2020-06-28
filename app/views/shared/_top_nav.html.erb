@@ -21,7 +21,7 @@
         </a>
 
         <div class="navbar-dropdown">
-          <a class="navbar-item">
+          <a class="navbar-item" 
           <%= link_to "Tests", tests_path %>
           </a>
           <a class="navbar-item">
@@ -41,12 +41,19 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-primary">
-            <strong>Sign up</strong>
-          </a>
-          <a class="button is-light">
-            Log in
-          </a>
+          <% if user_signed_in? %>
+            <a class="button is_danger" <%= link_to current_user.email, edit_user_registration_path %></a>
+            <a class="button is-warning" 
+              <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+            </a>
+          <% else %>
+            <a class="button is-primary" 
+              <%= link_to "Sign Up", new_user_registration_path %>
+            </a>
+            <a class="button is-light" 
+              <%= link_to "Sign Up", new_user_session_path %>
+            </a>
+          <% end %>
         </div>
       </div>
     </div>
