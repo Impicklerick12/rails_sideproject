@@ -1,38 +1,38 @@
 class PolaroidsController < ApplicationController
+  before_action :set_polaroid, only: [:show, :edit, :update, :destroy]
 
   def index
-    if @polaroids == nil
-      render "no_polaroids"
-    else
-      @polaroids = session[:polaroids]
-    end
+    @polaroids = Polaroid.all
   end
 
   def new
+    @polaroid = Polaroid.new
   end
   
   def create
-    
-    if session[:polaroids] == nil
-      session[:polaroids] = []
+    @polaroid = Polaroid.new(polaroid_params)
+    if @polaroid.save
+      redirect_to @polaroid
     end
-    session[:polaroids].push(params[:polaroid])
-
-    redirect_to polaroid_path(session[:polaroids].length)
-
   end
 
   def show
-    @polaroid = session[:polaroids][params[:id].to_i - 1]
-    puts params
   end
 
   def edit
-    @polaroid = session[:polaroids][params[:id].to_i - 1]
   end
 
   def update
-    session[:polaroids][params[:id].to_i - 1] = params[:polaroid]
-    redirect_to polaroid_path(params[:id].to_i)
+    
   end
+
+  private
+
+    def set_polaroid
+      @polaroid = Polaroid.find(params[:id])
+    end
+
+    def polaroid_params
+      params.require(:polaroid).permit(:title, :comment, :image)
+    end
 end
