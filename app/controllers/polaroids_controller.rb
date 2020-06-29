@@ -28,6 +28,11 @@ class PolaroidsController < ApplicationController
     end
   end
 
+  def destroy
+    @polaroid.destroy
+    redirect_to polaroids_url
+  end
+
   private
 
     def set_polaroid

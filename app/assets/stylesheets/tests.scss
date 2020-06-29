@@ -12,9 +12,23 @@
     .card {
         display: flex;
         flex-direction: column;
-       width: 350px;
-       margin-right: 1rem;
-       background-color: rgb(40, 40, 40);
+        width: 350px;
+        margin: 0 1rem 1rem 0;
+        background-color: rgb(40, 40, 40);
+        border-radius: 8px;
+        filter: grayscale(75%);
+
+        &:hover {
+            filter: none;
+
+            .title {
+                color: #f14668
+            }
+
+            .card-footer {
+                color: #f14668;
+            }
+        }
 
         .polaroid-content {
             position: absolute;
@@ -31,7 +45,7 @@
         }
 
         .card-image {
-            padding: 1rem 1rem 13rem;
+            padding: 1rem 1rem 15rem;
         }
 
         .card-footer {
