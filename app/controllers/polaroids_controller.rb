@@ -23,7 +23,9 @@ class PolaroidsController < ApplicationController
   end
 
   def update
-    
+    if @polaroid.update(polaroid_params)
+      redirect_to @polaroid
+    end
   end
 
   private
