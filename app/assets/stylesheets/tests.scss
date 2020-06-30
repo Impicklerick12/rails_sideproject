@@ -1,7 +1,11 @@
 // Place all the styles related to the tests controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-
+body {
+    background-color: rgb(176, 200, 189);
+    background-size: cover;
+    height: 100%;
+}
 .container {
 
     display: flex;
@@ -18,21 +22,20 @@
         flex-direction: column;
         width: 350px;
         margin: 0 1rem 1rem 0;
-        background-color: rgb(40, 40, 40);
-        border-radius: 8px;
-        filter: grayscale(75%);
+        background-color:#FFF;
+        filter: grayscale(100%);
 
-        &:hover {
-            filter: none;
+        // &:hover {
+        //     filter: none;
 
-            .title {
-                color: #f14668
-            }
+        //     .title {
+        //         color: #f14668
+        //     }
 
-            .card-footer {
-                color: #f14668;
-            }
-        }
+        //     .card-footer {
+        //         color: #f14668;
+        //     }
+        // }
 
         .polaroid-content {
             position: absolute;
@@ -40,21 +43,86 @@
             color: white;
 
             .card-content {
-                color: white;
+                color: rgb(40, 40, 40);
 
                 .title {
-                    color: white;
+                    color: rgb(40, 40, 40);
                 }
             }
         }
 
         .card-image {
-            padding: 1rem 1rem 15rem;
+            padding: 1rem 1rem 12rem;
         }
 
         .card-footer {
             background-color: white;
             width: 100%;
         }
+
+          &:nth-of-type(4n+1) {
+            transform: scale(0.8, 0.8) rotate(5deg);
+            transition: all 0.35s;
+          }
+
+          &:nth-of-type(4n+1) .polaroid:before {
+            transform: rotate(6deg);
+            box-shadow: 0 2.1rem 2rem rgba(0,0,0,0.4);
+          }
+
+          &:nth-of-type(4n+2) {
+            transform: scale(0.8, 0.8) rotate(-5deg);
+            transition: all 0.35s;
+          }
+
+          &:nth-of-type(4n+2) .polaroid:before {
+            transform: rotate(-6deg);
+            box-shadow: 0 2.1rem 2rem rgba(0,0,0,0.4);
+          }
+
+          &:nth-of-type(4n+4) {
+            transform: scale(0.8, 0.8) rotate(3deg);
+            transition: all 0.35s;
+          }
+
+          &:nth-of-type(4n+4) .polaroid:before {
+            transform: rotate(4deg);
+            box-shadow: 0 2.1rem 2rem rgba(0,0,0,0.3);
+          }
+
+          &:nth-of-type(4n+3) {
+            transform: scale(0.8, 0.8) rotate(-3deg);
+            transition: all 0.35s;
+          }
+
+          &:nth-of-type(4n+3) .polaroid:before {
+            transform: rotate(-4deg);
+            box-shadow: 0 2.1rem 2rem rgba(0,0,0,0.3);
+          }
+
+          &:hover {
+            filter: none;
+            transform: scale(1, 1) rotate(0deg) !important;
+            transition: all 0.35s;
+          }
+
+          &:nth-of-type(4n+4) {
+            transform: scale(0.8, 0.8) rotate(-5deg);
+            transition: all 0.35s;
+          }
+
+          &:nth-of-type(4n+4) .polaroid:before {
+            transform: rotate(-6deg);
+            box-shadow: 0 2.1rem 2rem rgba(0,0,0,0.4);
+          }
+
+          &:hover .polaroid:before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            transform: rotate(0deg);
+            box-shadow: 0 1rem 3rem rgba(0,0,0,0.2);
+            transition: all 0.35s;
+          }
     }
  }
