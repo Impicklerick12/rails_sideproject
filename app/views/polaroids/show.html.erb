@@ -23,11 +23,10 @@
 
         <div class="card-footer">
           <div class="card-footer-item"><%= link_to 'Show', @polaroid %></div>
-          <div class="card-footer-item"><%= link_to 'Edit', edit_test_path(@polaroid) %></div>
+          <div class="card-footer-item"><%= link_to 'Edit', edit_polaroid_path(@polaroid) %></div>
           <div class="card-footer-item"><%= link_to 'Delete', @polaroid, method: :delete, data: { confirm: "Are you sure you want to delete this Polaroid?" } %></div>
         </div>
       </div>
-      
     </div>
-    <%= link_to 'Back', polaroids_path %>
+    <button class="button is-primary"><%= link_to 'Back', polaroids_path %></button>
 </div>
